@@ -1,6 +1,5 @@
-@extends('layouts.admin')
+<x-admin-layout>
 
-@section('content')
 <h1>Dashboard</h1>
 
-@endsection
+</x-admin-layout>
