@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "content-hash": "9a2d44034d6c9403571deb588ced42e5",
+    "content-hash": "02d5c37dcea47a83262ead4061de352c",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
