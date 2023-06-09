@@ -252,7 +252,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    @yield('content')
+                    {{ $slot }}
 
                 </div>
                 <!-- /.container-fluid -->
