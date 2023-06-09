@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\Dashboard\DashboardController as DashboardDashboardController;
+use App\Http\Controllers\RedirectControllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->group(function () {
+    //handle dashboard redirect for diffrent user
+    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
+    //Routes for Admin
+    Route::prefix('/admin')->group(function () {
+
+        Route::get('/dashboard', [DashboardDashboardController::class, 'index'])->name('admin.dashboard');
+
+    });
+});
+
+
