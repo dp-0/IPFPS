@@ -7,7 +7,11 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
     <meta name="description" content="">
     <meta name="author" content="">
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <!-- Styles -->
+    @livewireStyles
+    
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/bootstrap.min.css') }}">
      <!-- Custom styles for this template-->
@@ -216,7 +220,7 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{route('profile.show')}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -229,10 +233,13 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item"  onclick="document.getElementById('logoutForm').submit();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
+                                <form method="POST" action="{{ route('logout') }}" id="logoutForm">
+                                    @csrf
+                                </form>
                             </div>
                         </li>
 
@@ -245,7 +252,7 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                    @yield('content')
 
                 </div>
                 <!-- /.container-fluid -->
@@ -257,7 +264,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; IPFPS {{ date("Y") }}</span>
                     </div>
                 </div>
             </footer>
@@ -296,14 +303,19 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/popper/popper.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/bootstrap.min.js') }}"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="{{ asset('vendor/jquery/jquery.easing.min.js')}}"></script>
+
 
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('vendor/sb-admin/sb-admin-min.js')}}"></script>
 
+        <!-- Core plugin JavaScript-->
+        <script src="{{ asset('vendor/jquery/jquery.easing.min.js')}}"></script>
+        @stack('modals')
+
+        @livewireScripts
 </body>
 
 </html>
