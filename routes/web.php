@@ -19,8 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-
-Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     //handle dashboard redirect for diffrent user
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
@@ -31,4 +30,3 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
 
     });
 });
-

@@ -14,8 +14,9 @@ class DashboardController extends Controller
     {
         $user = auth()->user();
 
-        if($user->utype == 'admin')
+        if ($user->utype == 'admin') {
             return to_route('admin.dashboard');
+        }
 
         // if($user->utype == 'police')
         //     return to_route('police.dasshboard');
