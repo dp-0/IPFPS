@@ -250,7 +250,8 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
+                    {{-- BreadCrumbs --}}
+                    {{ Breadcrumbs::render() }}
                     <!-- Page Heading -->
                     {{ $slot }}
 
