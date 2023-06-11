@@ -12,3 +12,7 @@ Breadcrumbs::for('welcome', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('admin.dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('admin.dashboard'));
 });
+
+Breadcrumbs::for('profile.show', function (BreadcrumbTrail $trail) {
+    $trail->push('Profile', route('profile.show'));
+});
