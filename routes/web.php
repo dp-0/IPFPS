@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\Dashboard\DashboardController as DashboardDashboardController;
 use App\Http\Controllers\RedirectControllers\DashboardController;
+use App\Http\Modules\User\RolePermissions;
+use App\Http\Modules\User\Roles;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,5 +30,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
         Route::get('/dashboard', [DashboardDashboardController::class, 'index'])->name('admin.dashboard');
 
+        Route::get('/roles', Roles::class)->name('admin.roles');
+        Route::get('/roles/{role}/permissions', RolePermissions::class)->name('admin.roles_permissions');
     });
 });

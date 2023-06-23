@@ -21,11 +21,18 @@
     <!-- Divider -->
     <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-        Interface
-    </div>
-
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#users-menu"
+            aria-expanded="true" aria-controls="users-menu">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Users</span>
+        </a>
+        <div id="users-menu" class="collapse" aria-labelledby="userHeadning" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 rounded">
+                <a class="" href="{{route('admin.roles')}}">Roles</a>
+            </div>
+        </div>
+    </li>
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
