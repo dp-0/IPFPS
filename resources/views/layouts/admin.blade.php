@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>{{ config('app.name', 'Laravel') }}</title>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <meta name="description" content="">
     <meta name="author" content="">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Styles -->
     @livewireStyles
-    
+
     <!-- Custom fonts for this template-->
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/bootstrap.min.css') }}">
-     <!-- Custom styles for this template-->
+    <!-- Custom styles for this template-->
     <link rel="stylesheet" href="{{ asset('vendor/sb-admin/sb-admin-min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('vendor/fontawesome/css/all.css') }}">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-   
+
 
 
 </head>
@@ -53,8 +54,8 @@
                     <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small"
+                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -137,7 +138,8 @@
                                         Spending Alert: We've noticed unusually high spending for your account.
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All
+                                    Alerts</a>
                             </div>
                         </li>
 
@@ -157,7 +159,8 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('vendor/sb-admin/img/undraw_profile_1.svg')}}"
+                                        <img class="rounded-circle"
+                                            src="{{ asset('vendor/sb-admin/img/undraw_profile_1.svg') }}"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -169,7 +172,8 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('vendor/sb-admin/img/undraw_profile_2.svg')}}"
+                                        <img class="rounded-circle"
+                                            src="{{ asset('vendor/sb-admin/img/undraw_profile_2.svg') }}"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -181,20 +185,22 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('vendor/sb-admin/img/undraw_profile_3.svg')}}"
+                                        <img class="rounded-circle"
+                                            src="{{ asset('vendor/sb-admin/img/undraw_profile_3.svg') }}"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
                                     <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                        <div class="text-truncate">Last month's report looks great, I am very happy
+                                            with
                                             the progress so far, keep up the good work!</div>
                                         <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                                     </div>
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                                            alt="...">
+                                        <img class="rounded-circle"
+                                            src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
                                     <div>
@@ -203,7 +209,8 @@
                                         <div class="small text-gray-500">Chicken the Dog · 2w</div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More
+                                    Messages</a>
                             </div>
                         </li>
 
@@ -215,12 +222,12 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle"
-                                    src="{{ asset('vendor/sb-admin/img/undraw_profile.svg')}}">
+                                    src="{{ asset('vendor/sb-admin/img/undraw_profile.svg') }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{route('profile.show')}}">
+                                <a class="dropdown-item" href="{{ route('profile.show') }}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
@@ -233,7 +240,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item"  onclick="document.getElementById('logoutForm').submit();">
+                                <a class="dropdown-item" onclick="document.getElementById('logoutForm').submit();">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -265,7 +272,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; IPFPS {{ date("Y") }}</span>
+                        <span>Copyright &copy; IPFPS {{ date('Y') }}</span>
                     </div>
                 </div>
             </footer>
@@ -310,13 +317,22 @@
 
 
     <!-- Custom scripts for all pages-->
-    <script src="{{ asset('vendor/sb-admin/sb-admin-min.js')}}"></script>
+    <script src="{{ asset('vendor/sb-admin/sb-admin-min.js') }}"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="{{ asset('vendor/jquery/jquery.easing.min.js')}}"></script>
-        @stack('modals')
-
-        @livewireScripts
+    <!-- Core plugin JavaScript-->
+    <script src="{{ asset('vendor/jquery/jquery.easing.min.js') }}"></script>
+    @stack('modals')
+    @livewireScripts
+    <script>
+        window.addEventListener('alert', event => {
+            swal({
+                timer: 1500,
+                toast: true,
+                title: event.detail.message,
+                icon: event.detail.type,
+            });
+        });
+    </script>
 </body>
 
 </html>

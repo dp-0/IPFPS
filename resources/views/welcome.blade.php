@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/bootstrap.min.css') }}">
 </head>
 <body>
+    <div>
     {{ Breadcrumbs::render('welcome') }}
+
+    <div class="text-center">
+            <a href="{{route("login")}}" class="btn btn-secondary">Login</a>
+    </div>
     </div>
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/bootstrap.min.js') }}"></script>

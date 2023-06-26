@@ -1,0 +1,23 @@
+<?php
+
+namespace [namespace];
+
+use App\Helpers\BaseComponent;
+
+class [class] extends BaseComponent
+{
+    protected $model = [class]::class;
+
+    public function rules(){
+        return [
+            
+        ];
+    }
+
+    public function render()
+    {
+        $this->authorize('read [class]');
+        //
+        return view('[view]');
+    }
+}

@@ -13,6 +13,16 @@ Breadcrumbs::for('admin.dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('admin.dashboard'));
 });
 
+Breadcrumbs::for('admin.roles', function (BreadcrumbTrail $trail) {
+    $trail->push('Roles', route('admin.roles'));
+});
+
+Breadcrumbs::for('admin.roles_permissions', function (BreadcrumbTrail $trail, $role) {
+    $trail->parent('admin.roles');
+    $trail->push($role->name);
+    $trail->push('Permissions', route('admin.roles_permissions',$role));
+});
+
 Breadcrumbs::for('profile.show', function (BreadcrumbTrail $trail) {
     $trail->push('Profile', route('profile.show'));
 });
