@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Helpers;
+namespace App\Helpers\Eloquent;
 
 use Exception;
 use Illuminate\Contracts\Database\Eloquent\Builder;
@@ -20,7 +20,7 @@ trait Searchable
                 $builder->orWhereRelation($relation, $column, 'like', "%$term%");
                 continue;
             }
-            $builder->orWhere($searchable, 'like', "%$term%");
+            $builder->Where($searchable, 'like', "%$term%");
         }
         return $builder;
     }

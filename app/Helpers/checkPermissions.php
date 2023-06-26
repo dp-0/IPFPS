@@ -6,6 +6,6 @@ trait CheckPermissions
 {
     public function authorize($permissions)
     {
-        return (auth()->user()->hasPermissionTo($permissions))?:abort(403);
+        return (auth()->user()->hasPermissionTo($permissions))?:abort(401);
     }
 }
