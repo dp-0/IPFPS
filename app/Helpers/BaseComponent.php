@@ -11,14 +11,17 @@ class BaseComponent extends Component
     use WithPagination;
     use CheckPermissions;
 
-
+    protected $listeners = ['erase' => 'erase'];
     protected $queryString = ['search' => ['except' => '']];
     public $search = '';
     public $perPage = 10;
 
     public function updated($propertyName)
     {
-        $this->validateOnly($propertyName);
+        $this->validateOnly($propertyName,[
+            'search' => 'nullable',
+            'perPage' => 'in:-1,10,20,50,100,500,100',
+        ]);
         if ($this->perPage == -1) {
             $this->perPage = $this->model::count();
         }
@@ -31,16 +34,15 @@ class BaseComponent extends Component
     {
         $this->resetPage();
     }
-    protected $rules = [
-        'search' => 'nullable',
-        'perPage' => 'in:-1,10,20,50,100,500,100',
-    ];
-
-    public function alertSuccess($message)
+    public function alert($type,$message,$title=null)
     {
-        $this->dispatchBrowserEvent('alert', [
-            'type' => 'success',
+        $this->dispatchBrowserEvent('toast.success', [
+            'tite' => $title,
             'message' => $message,
+            'type'=>$type
         ]);
+    }
+    public function erase(){
+        $this->resetExcept(['search','perPage']);
     }
 }

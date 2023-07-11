@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\Eloquent\Searchable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -21,6 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
     use TwoFactorAuthenticatable;
     use SoftDeletes;
     use HasRoles;
+    use Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -31,6 +33,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'utype'
     ];
 
     /**
@@ -61,5 +64,11 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     protected $appends = [
         'profile_photo_url',
+    ];
+
+    protected $searchable = [
+        'name',
+        'email',
+        'utype'
     ];
 }

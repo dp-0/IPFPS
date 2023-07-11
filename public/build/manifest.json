@@ -1,11 +1,16 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-af83f60f.css",
+    "file": "assets/app-082a25af.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
+  "resources/css/toastr.css": {
+    "file": "assets/toastr-1670500a.css",
+    "isEntry": true,
+    "src": "resources/css/toastr.css"
+  },
   "resources/js/app.js": {
-    "file": "assets/app-8d5b997b.js",
+    "file": "assets/app-70365b39.js",
     "isEntry": true,
     "src": "resources/js/app.js"
   }

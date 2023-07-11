@@ -20,7 +20,7 @@ trait Searchable
                 $builder->orWhereRelation($relation, $column, 'like', "%$term%");
                 continue;
             }
-            $builder->Where($searchable, 'like', "%$term%");
+            $builder->orWhere($searchable, 'like', "%$term%");
         }
         return $builder;
     }
