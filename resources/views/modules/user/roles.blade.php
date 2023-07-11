@@ -24,7 +24,9 @@
                 <tbody class="table-striped">
                     @foreach ($roles as $role)
                         <tr>
-                            <td>{{ ($roles->currentPage() - 1) * $roles->perPage() + $loop->index + 1 }}</td>
+                            <td>
+                                <x-sn :data="$roles" :$loop></x-sn>
+                            </td>
                             <td>{{ $role->name }}</td>
                             <td>
                                 @can('read permissions')
@@ -63,9 +65,9 @@
                 Cancel
             </x-secondary-button>
 
-            <x-danger-button class="ml-2" wire:click="addRole" wire:loading.attr="disabled">
+            <x-primary-button class="ml-2" wire:click="addRole" wire:loading.attr="disabled">
                 Add Role
-            </x-danger-button>
+            </x-primary-button>
         </x-slot>
     </x-dialog-modal>
 </div>

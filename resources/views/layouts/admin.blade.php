@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'IPFPS') }}</title>
     <meta name="description" content="">
     <meta name="author" content="">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -23,7 +23,7 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-
+    @vite(['resources/css/toastr.css'])
 
 </head>
 
@@ -323,16 +323,6 @@
     <script src="{{ asset('vendor/jquery/jquery.easing.min.js') }}"></script>
     @stack('modals')
     @livewireScripts
-    <script>
-        window.addEventListener('alert', event => {
-            swal({
-                timer: 1500,
-                toast: true,
-                title: event.detail.message,
-                icon: event.detail.type,
-            });
-        });
-    </script>
 </body>
 
 </html>

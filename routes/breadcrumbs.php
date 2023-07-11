@@ -13,6 +13,10 @@ Breadcrumbs::for('admin.dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('admin.dashboard'));
 });
 
+Breadcrumbs::for('admin.users', function (BreadcrumbTrail $trail) {
+    $trail->push('User', route('admin.users'));
+});
+
 Breadcrumbs::for('admin.roles', function (BreadcrumbTrail $trail) {
     $trail->push('Roles', route('admin.roles'));
 });
