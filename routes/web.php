@@ -5,6 +5,7 @@ use App\Http\Controllers\RedirectControllers\DashboardController;
 use App\Http\Modules\User\RolePermissions;
 use App\Http\Modules\User\Roles;
 use App\Http\Modules\User\UserControllerComponent;
+use Dp0\UserActivity\Controllers\UserActivity;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,5 +36,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::get('/roles/{role}/permissions', RolePermissions::class)->name('admin.roles_permissions');
 
         Route::get('/users', UserControllerComponent::class)->name('admin.users');
+
+        //Activity Log
+        Route::get('/activity-logs', UserActivity::class)->name('admin.user_activity');
     });
 });

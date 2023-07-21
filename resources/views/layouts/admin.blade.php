@@ -235,9 +235,9 @@
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" href="{{route('admin.user_activity')}}">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                    Activity Logs
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" onclick="document.getElementById('logoutForm').submit();">
@@ -323,6 +323,10 @@
     <script src="{{ asset('vendor/jquery/jquery.easing.min.js') }}"></script>
     @stack('modals')
     @livewireScripts
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    @stack('scripts')
 </body>
 
 </html>
