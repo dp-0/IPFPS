@@ -20,6 +20,10 @@ Breadcrumbs::for('admin.users', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('admin.roles', function (BreadcrumbTrail $trail) {
     $trail->push('Roles', route('admin.roles'));
 });
+Breadcrumbs::for('admin.user_activity', function (BreadcrumbTrail $trail) {
+    $trail->parent('admin.users');
+    $trail->push('Activity Logs', route('admin.user_activity'));
+});
 
 Breadcrumbs::for('admin.roles_permissions', function (BreadcrumbTrail $trail, $role) {
     $trail->parent('admin.roles');
