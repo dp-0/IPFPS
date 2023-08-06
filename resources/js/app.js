@@ -5,6 +5,8 @@ import focus from '@alpinejs/focus';
 
 import Toastr from 'toastr';
 
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 window.Alpine = Alpine;
 window.toastr = Toastr;
@@ -31,6 +33,23 @@ toastr.options = {
     "hideMethod": "fadeOut"
   }
   window.addEventListener('toast.success', event => {
-    toastr[event.detail.type](event.detail.message, event.detail.title);  
+    toastr[event.detail.type](event.detail.message, event.detail.title);
   });
- 
+
+Fancybox.bind("[data-fancybox]", {
+  Toolbar: {
+    display: {
+      left: ["infobar"],
+      middle: [
+        "zoomIn",
+        "zoomOut",
+        "toggle1to1",
+        "rotateCCW",
+        "rotateCW",
+        "flipX",
+        "flipY",
+      ],
+      right: ["slideshow", "download", "thumbs", "close"],
+    },
+  },
+});

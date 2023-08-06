@@ -8,8 +8,13 @@
     <title>{{ config('app.name', 'IPFPS') }}</title>
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" href="{{asset('storage/logo1.ico')}}" type="image/x-icon">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+    <link href="https://unpkg.com/filepond@^4/dist/filepond.css" rel="stylesheet" />
+    <link
+    href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+    rel="stylesheet"
+/>
     <!-- Styles -->
     @livewireStyles
 
@@ -22,7 +27,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
+        <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     @vite(['resources/css/toastr.css'])
 
 </head>
@@ -326,6 +331,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script type="text/javascript" src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script src="https://unpkg.com/filepond@^4/dist/filepond.js"></script>
     @stack('scripts')
 </body>
 

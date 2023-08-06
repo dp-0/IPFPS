@@ -9,7 +9,9 @@ class PermissionList
     private $models = [
         'users',
         'roles',
-        'permissions'
+        'permissions',
+        'complainants',
+        'incident type'
     ];
 
     public static function getPermissions()

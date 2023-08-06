@@ -35,6 +35,25 @@
             </div>
         </div>
     </li>
+{{--    Fir Management Sidebar--}}
+    <li class="nav-item {{ Request::is('admin/complainants','admin/incident-type','admin/fir-list','admin/case-priority','admin/complain','admin/fir-status','admin/complain/new') ? 'active' : '' }}">
+        <a class="nav-link" href="#" data-toggle="collapse" data-target="#fir"
+           aria-expanded="true" aria-controls="fir">
+            <i class="fas fa-fw fa-file-alt"></i>
+            <span>Fir Management</span>
+        </a>
+        <div id="fir" class="collapse {{ Request::is('admin/complainants','admin/fir-list','admin/incident-type','admin/complain','admin/case-priority','admin/fir-status','admin/complain/new') ? 'show' : '' }}" aria-labelledby="fir" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item {{ Request::is('admin/complainants') ? 'active' : '' }}" href="{{route('admin.fir.complainants')}}">Complainants</a>
+                <a class="collapse-item {{ Request::is('admin/incident-type') ? 'active' : '' }}" href="{{route('admin.fir.incident-type')}}">Incident Type</a>
+                <a class="collapse-item {{ Request::is('admin/case-priority') ? 'active' : '' }}" href="{{route('admin.fir.case-priority')}}">Case Priority</a>
+                <a class="collapse-item {{ Request::is('admin/fir-status') ? 'active' : '' }}" href="{{route('admin.fir.fir-status')}}">Fir Status</a>
+                <a class="collapse-item {{ Request::is('admin/complain/new') ? 'active' : '' }}" href="{{route('admin.fir.complain.new')}}">New Complain</a>
+                <a class="collapse-item {{ Request::is('admin/complain') ? 'active' : '' }}" href="{{route('admin.fir.complain')}}">Complain Lists</a>
+                <a class="collapse-item {{ Request::is('admin/fir-list') ? 'active' : '' }}" href="{{route('admin.fir.fir-list')}}">Fir Lists</a>
+            </div>
+        </div>
+    </li>
     <!-- Heading -->
     <div class="sidebar-heading">
         Addons

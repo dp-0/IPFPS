@@ -11,7 +11,7 @@ class UserControllerComponent extends BaseComponent
 {
     protected $model = User::class;
 
-  
+
     public $addUsers = false;
     public $updateUsers = false;
     public $deleteUsers = false;
@@ -77,7 +77,7 @@ class UserControllerComponent extends BaseComponent
         $this->erase();
     }
 
-   
+
     public function rules()
     {
         return [
@@ -94,4 +94,8 @@ class UserControllerComponent extends BaseComponent
         'user.utype' => 'Type',
         'user.user_id' => 'User Id'
     ];
+
+    public function closeModal(){
+        $this->erase();
+    }
 }

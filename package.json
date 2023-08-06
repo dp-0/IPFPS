@@ -18,6 +18,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@fancyapps/ui": "^5.0.20",
         "toastr": "^2.1.4"
     }
 }

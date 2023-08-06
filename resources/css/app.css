@@ -6,3 +6,6 @@
 [x-cloak] {
     display: none;
 }
+.fancybox__container {
+    --fancybox-bg: rgba(81, 68, 68, 0.8) !important;
+}

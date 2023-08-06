@@ -18,7 +18,7 @@ class RoleSeeder extends Seeder
        $permissions = PermissionList::getPermissions();
        $adminRole->syncPermissions($permissions);
 
-       Role::factory(1000)->create();
+       Role::factory(10)->create();
 
     }
 }
