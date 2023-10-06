@@ -67,6 +67,9 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+    public function getImageAttribute(){
+        return "storage/".$this->profile_photo_path;
+    }
 
     protected $searchable = [
         'name',

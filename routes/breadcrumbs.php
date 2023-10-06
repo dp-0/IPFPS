@@ -78,3 +78,7 @@ Breadcrumbs::for('admin.fir.evidence.add', function (BreadcrumbTrail $trail, $fi
     $trail->push('Evidence');
     $trail->push('New',route('admin.fir.evidence.add',$fir->id));
 });
+
+Breadcrumbs::for('police.dashboard', function (BreadcrumbTrail $trail) {
+    $trail->push('Dashboard', route('police.dashboard'));
+});

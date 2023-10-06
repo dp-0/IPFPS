@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -22,8 +23,8 @@ return new class extends Migration
             $table->timestamp('investigation_end_date')->nullable();
             $table->string('case_number')->unique();
             $table->string('warrant_number')->unique();
-            $table->timestamp('reported_at');
-            $table->timestamp('incident_date');
+            $table->timestamp('reported_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('incident_date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->bigInteger('related_to')->nullable();
             $table->text('remarks')->nullable();
             $table->timestamps();
