@@ -18,7 +18,9 @@ class DashboardController extends Controller
             return to_route('admin.dashboard');
         }
 
-        // if($user->utype == 'police')
-        //     return to_route('police.dasshboard');
+        if($user->utype == 'police'){
+            return to_route('police.dashboard');
+        }
+            
     }
 }

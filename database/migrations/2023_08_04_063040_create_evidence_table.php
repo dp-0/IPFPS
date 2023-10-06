@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -19,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('collected_by');
             $table->timestamp('collected_at');
             $table->unsignedBigInteger('preserved_by');
-            $table->timestamp('preserved_at');
+            $table->timestamp('preserved_at')->default(DB::raw('CURRENT_TIMESTAMP'));;
             $table->text('attachment_path');
             $table->softDeletes();
             $table->timestamps();

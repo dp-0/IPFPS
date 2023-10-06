@@ -1,5 +1,4 @@
 <?php
-
 use App\Http\Controllers\Admin\Dashboard\DashboardController as DashboardDashboardController;
 use App\Http\Controllers\RedirectControllers\DashboardController;
 use App\Http\Modules\Fir\AddEvidenceComponent;
@@ -11,6 +10,7 @@ use App\Http\Modules\User\Roles;
 use App\Http\Modules\User\UserControllerComponent;
 use Dp0\UserActivity\Controllers\UserActivity;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Users\Police\PoiceDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,5 +60,12 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
 
 
+    });
+
+     //Routes for Admin
+     Route::prefix('/police')->group(function () {
+
+        Route::get('/dashboard', [PoiceDashboardController::class, 'index'])->name('police.dashboard');
+       
     });
 });
