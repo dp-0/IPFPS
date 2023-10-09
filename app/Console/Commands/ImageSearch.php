@@ -11,7 +11,7 @@ class ImageSearch extends Command
      *
      * @var string
      */
-    protected $signature = 'ipfs:ImageSearch';
+    protected $signature = 'ipfps:ImageSearch';
 
     /**
      * The console command description.

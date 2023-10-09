@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ImageSearchResultController;
+use App\Http\Modules\Search\ImageSearchResult;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +19,5 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
+
+Route::post('/search/image', [ImageSearchResultController::class,'index'])->name('search.result');
