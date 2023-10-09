@@ -1,0 +1,6 @@
+bin/
+include/
+lib/
+pyvenv.cfg
+search.log
+src/search.log

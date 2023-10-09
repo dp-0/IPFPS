@@ -1,6 +1,9 @@
 <?php
 use App\Http\Controllers\Admin\Dashboard\DashboardController as DashboardDashboardController;
+use App\Http\Controllers\ImageSearchResultController;
 use App\Http\Controllers\RedirectControllers\DashboardController;
+use App\Http\Controllers\RedirectControllers\ImageDetailsController;
+use App\Http\Controllers\Search\ImageSearchController;
 use App\Http\Modules\Fir\AddEvidenceComponent;
 use App\Http\Modules\Fir\ComplainComponent;
 use App\Http\Modules\Fir\NewComplainComponent;
@@ -11,6 +14,9 @@ use App\Http\Modules\User\UserControllerComponent;
 use Dp0\UserActivity\Controllers\UserActivity;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Users\Police\PoiceDashboardController;
+use App\Http\Modules\Fir\ComplinantDetails;
+use App\Http\Modules\Search\ImageSearch;
+use App\Http\Modules\Search\ImageSearchDetails;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,12 +36,13 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     //handle dashboard redirect for diffrent user
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
-
+    //handle image search
+    Route::get('/search/image', ImageSearch::class)->name('search.imagesearch');
+    
+    Route::get('/search/image/details',ImageDetailsController::class)->name('search.image.detail');
     //Routes for Admin
     Route::prefix('/admin')->group(function () {
-
         Route::get('/dashboard', [DashboardDashboardController::class, 'index'])->name('admin.dashboard');
-
         //User Management
         Route::get('/roles', Roles::class)->name('admin.roles');
         Route::get('/roles/{role}/permissions', RolePermissions::class)->name('admin.roles_permissions');
@@ -46,6 +53,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         //Fir Management
 
         Route::get('/complainants',\App\Http\Modules\Fir\ComplainantComponent::class)->name('admin.fir.complainants');
+        Route::get('/complinants/details/{complinant}', ComplinantDetails::class)->name('admin.fir.complinants.details');
         Route::get('/incident-type',\App\Http\Modules\Fir\IncidentTypeComponent::class)->name('admin.fir.incident-type');
         Route::get('/case-priority',\App\Http\Modules\Fir\CasePriorityComponent::class)->name('admin.fir.case-priority');
         Route::get('/complain', ComplainComponent::class)->name('admin.fir.complain');

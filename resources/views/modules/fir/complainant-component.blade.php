@@ -18,7 +18,7 @@
                         <th>Name</th>
                         <th>Address</th>
                         <th>Contact No</th>
-
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody class="table-striped">
@@ -40,7 +40,9 @@
 
                             <td>{{ $comp->address }}</td>
                             <td>{{ $comp->mobile_no }}</td>
-
+                            <td>
+                                <a href="{{route('admin.fir.complinants.details',$comp->id)}}" class="btn btn-primary btn-sm">Details</a>
+                            </td>
                         </tr>
                     @empty
                         <tr>

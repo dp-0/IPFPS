@@ -11,6 +11,20 @@ Breadcrumbs::for('admin.dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('admin.dashboard'));
 });
 
+Breadcrumbs::for('search.imagesearch', function (BreadcrumbTrail $trail) {
+    $trail->push("Search");
+    $trail->push('Image', route('search.imagesearch'));
+});
+
+Breadcrumbs::for('search.image.detail', function(BreadcrumbTrail $trail){
+    $trail->parent('search.imagesearch');
+    $trail->push('Details');
+});
+
+Breadcrumbs::for('search.result', function(BreadcrumbTrail $trail){
+    
+});
+
 Breadcrumbs::for('admin.users', function (BreadcrumbTrail $trail) {
     $trail->push('User', route('admin.users'));
 });
@@ -36,6 +50,11 @@ Breadcrumbs::for('profile.show', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('admin.fir.complainants', function (BreadcrumbTrail $trail) {
     $trail->push('Complainants', route('admin.fir.complainants'));
 });
+Breadcrumbs::for('admin.fir.complinants.details', function (BreadcrumbTrail $trail, $complinants) {
+    $trail->parent('admin.fir.complainants');
+    $trail->push('Details', route('admin.fir.complinants.details',$complinants));
+});
+
 Breadcrumbs::for('admin.fir.incident-type', function (BreadcrumbTrail $trail) {
     $trail->push('Incident Type', route('admin.fir.incident-type'));
 });
