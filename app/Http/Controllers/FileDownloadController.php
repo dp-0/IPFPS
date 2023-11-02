@@ -26,16 +26,21 @@ class FileDownloadController extends Controller
         $client = new Client();
         $url = 'http://127.0.0.1:5001/api/v0/cat';
 
-        $ipfsHash = $hash;
+        $fileName = 'ipfs';
+        foreach($attachmentPaths as $file){
+            if($file['hash'] == $hash){
+                $fileName= basename($file['file']);
+            }
+        }
         $response = $client->post($url, [
             'query' => [
-                'arg' => $ipfsHash,
+                'arg' => $hash,
             ],
         ]);
         $file = $response->getBody()->getContents();
         $fileLocation = storage_path('app/encrypted/'. 'abc.txt');
         $decryptedData = $aes->decrypt($file);
         file_put_contents($fileLocation, $decryptedData, LOCK_EX);
-        return Response::download($fileLocation, "abc.txt", ['Content-Type: application/zip']);
+        return Response::download($fileLocation, $fileName, ['Content-Type: application/zip']);
     }
 }
