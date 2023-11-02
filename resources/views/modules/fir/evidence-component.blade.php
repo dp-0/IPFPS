@@ -65,6 +65,7 @@
                     </thead>
                     <tbody>
                         <tr>
+    
                             <th>Type</th>
                             <td>{{$modal_evidence->type}}</td>
                         </tr>
@@ -92,9 +93,14 @@
                             <th>Files</th>
                             <td>
                                 <ul class="list-group list-group-flush">
-
-                            @foreach (explode(',', $modal_evidence->attachment_path) as $file)
-                                <li class="list-group-item list-group-item-action"><a href="{{asset($file)}}" target="_blank" rel="noopener noreferrer">Document {{$loop->index +1}}</a></li>
+                                 @php
+                                     $files = json_decode($evidence->attachment_path, true);
+                                     unset($files['key']);
+                                     unset($files['iv']);
+                                     
+                                 @endphp   
+                            @foreach ($files as $index=>$file)
+                                <li class="list-group-item list-group-item-action"><a href="{{route('download',['hash'=>$file['hash'],'id'=>$modal_evidence->id])}}" target="_blank" rel="noopener noreferrer">Document {{$loop->index +1}}</a></li>
                             @endforeach
 
                         </ul>

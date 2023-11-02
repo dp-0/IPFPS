@@ -1,9 +1,11 @@
 <?php
 use App\Http\Controllers\Admin\Dashboard\DashboardController as DashboardDashboardController;
+use App\Http\Controllers\FileDownloadController;
 use App\Http\Controllers\ImageSearchResultController;
 use App\Http\Controllers\RedirectControllers\DashboardController;
 use App\Http\Controllers\RedirectControllers\ImageDetailsController;
 use App\Http\Controllers\Search\ImageSearchController;
+use App\Http\Controllers\TestController;
 use App\Http\Modules\Fir\AddEvidenceComponent;
 use App\Http\Modules\Fir\ComplainComponent;
 use App\Http\Modules\Fir\NewComplainComponent;
@@ -36,6 +38,9 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     //handle dashboard redirect for diffrent user
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
+    //download file
+    Route::get('/download/{hash}/{id}',[FileDownloadController::class,'download'])->name('download');
     //handle image search
     Route::get('/search/image', ImageSearch::class)->name('search.imagesearch');
     
