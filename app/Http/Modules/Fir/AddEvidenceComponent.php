@@ -3,6 +3,7 @@
 namespace App\Http\Modules\Fir;
 
 use App\Helpers\BaseComponent;
+use App\Jobs\EncryptFile;
 use App\Models\Evidence;
 use App\Models\Fir;
 use App\Models\User;
@@ -44,7 +45,7 @@ class AddEvidenceComponent extends BaseComponent
             $filesArray[] = $fileName;
         }
         $jsonFiles = implode(',', $filesArray);
-        $data = Evidence::create(
+        $evidence = Evidence::create(
             [
                 'fir_id' => $this->fir->id,
                 'description' => $validated['description'],
@@ -53,9 +54,10 @@ class AddEvidenceComponent extends BaseComponent
                 'collected_at' => $validated['collected_at'],
                 'preserved_by' => $validated['preserved_by']['id'],
                 'preserved_at' => $validated['preserved_at'],
-                'attachment_path' => $jsonFiles,
+                'attachment_path' => "",
             ]
         );
+        EncryptFile::dispatch($filesArray, $evidence);
         $this->alert('success', "Evidence Added Successfully");
         $this->resetExcept(['fir']);
         $this->dispatchBrowserEvent('evidence-added', 'success');
