@@ -63,7 +63,7 @@
                 Cancel
             </x-secondary-button>
             <x-primary-button class="ml-2 btn-primary" wire:click="addWitness" wire:loading.attr="disabled">
-                Add Incident Type
+                Add Witness
             </x-primary-button>
         </x-slot>
     </x-dialog-modal>

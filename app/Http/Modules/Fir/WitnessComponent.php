@@ -41,7 +41,7 @@ class WitnessComponent extends Component
             'name'=>'required|min:3',
             'address' => 'required',
             'statement' => 'required|string',
-            'contact_number' => 'nullable|min:10|digits',
+            'contact_number' => 'nullable|min:10',
             'fir_id' => 'required| exists:firs,id'
         ];
     }
