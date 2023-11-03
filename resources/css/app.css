@@ -9,3 +9,14 @@
 .fancybox__container {
     --fancybox-bg: rgba(81, 68, 68, 0.8) !important;
 }
+
+@media print {
+    .no-print{
+       display: none;
+    }
+    #accordionSidebar{
+        display:none;
+    }
+  
+ }
+ 

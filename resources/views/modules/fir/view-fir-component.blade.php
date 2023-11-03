@@ -1,16 +1,22 @@
 <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
     <div class="row">
         <div class="card w-100">
-            <div class="card-header"><strong>Fir Information</strong></div>
+            <div class="card-header d-flex justify-content-between">
+                <strong>Fir Information</strong>
+                <strong>
+                    <a href="{{ route('fir.similarity', $fir->id) }}" class="no-print btn btn-secondary btn-sm">Similar
+                        Cases</a>
+                    @if ($fir->getStatus->name != 'Closed')
+                        <button wire:click="close()" class="btn btn-sm btn-danger">Close</button>
+                    @endif
+                </strong>
+            </div>
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                         <strong>Case Number: </strong>{{ $fir->case_number }}
                         <p>
-                            @if ($fir->related_to)
-                                <strong>Related To:</strong> <span class="">{{ $fir->related_to }}</span><br>
-                            @endif
-
+                            Status: {{ $fir->getStatus->name }}
                         </p>
                     </li>
                     <li class="list-group-item">

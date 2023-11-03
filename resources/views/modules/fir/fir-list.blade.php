@@ -19,7 +19,7 @@
                         <th>Complain By</th>
                         <th>Reported Date</th>
                         <th>Investigation Date</th>
-                       
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -35,6 +35,7 @@
                             <td>{{ $fir->getComplainBy->name }}</td>
                             <td>{{$fir->reported_at}}</td>
                             <td>{{($fir->investigation_start_date)?:'N/A'}}</td>
+                            <td>{{$fir->getStatus->name}}</td>
                             <td>
                                 <a href="{{route('admin.fir.view',$fir->id)}}" class="btn btn-sm btn-success">Details</a>
                             </td>
