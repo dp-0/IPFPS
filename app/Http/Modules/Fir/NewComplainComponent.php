@@ -45,6 +45,7 @@ class NewComplainComponent extends BaseComponent
         ]);
         $this->alert('success','Complain register successfully');
         $this->erase();
+        return redirect()->route('admin.fir.new',['complainNumber'=>$comp->complain_number]);
     }
      public function rules(){
          return [

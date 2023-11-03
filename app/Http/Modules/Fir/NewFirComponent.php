@@ -64,6 +64,7 @@ class NewFirComponent extends BaseComponent
                 'case_number' => $this->complain->complain_number,
                 'warrant_number' => 'FIR-' . uniqid(),
                 'incident_type_id' =>$this->complain->incident_type_id,
+                'investigation_start_date'=>now(),
                 'status_id' =>1,
                 'reported_at' => $this->complain->reported_at,
                 'incident_date' => $this->complain->incident_date,
