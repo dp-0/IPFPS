@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header flex jutify-content-center">
             <strong>Evidences</strong>
-            <a href="{{ route('admin.fir.evidence.add', $fir_id) }}" class="btn btn-primary btn-sm ml-auto">
+            <a href="{{ route('admin.fir.evidence.add', $fir_id) }}" class="d-print-none btn btn-primary btn-sm ml-auto">
                 <i class="fa fa-plus-circle"></i> Add Evidence
             </a>
         </div>
@@ -15,7 +15,7 @@
                         <th>Type</th>
                         <th>Collected By</th>
                         <th>Collected At</th>
-                        <th>Action</th>
+                        <th class="no-print">Action</th>
                     </tr>
                     @forelse ($evidences as $evidence)
                         <tr>
@@ -34,7 +34,7 @@
                             <td>
                                 {{ $evidence->collected_at }}
                             </td>
-                            <td>
+                            <td class="d-print-none">
                                 <button class="btn btn-primary btn-sm" wire:click="viewEvidence({{$evidence->id}})"
                                     value="true"><i class="fa fa-eye">View</i></button>
                             </td>

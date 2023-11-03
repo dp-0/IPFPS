@@ -2,7 +2,7 @@
     <div class="card">
         <div class="card-header flex jutify-content-center">
             <strong>Witness Information</strong> 
-            <button wire:click="$toggle('addWitness')" class="btn btn-primary btn-sm ml-auto"> <i class="fa fa-plus-circle"></i> Add Witness </button>
+            <button wire:click="$toggle('addWitness')" class="d-print-none btn btn-primary btn-sm ml-auto"> <i class="fa fa-plus-circle"></i> Add Witness </button>
         </div>
         <div class="card-body">
             <table class="table">

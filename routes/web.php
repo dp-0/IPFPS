@@ -1,11 +1,8 @@
 <?php
 use App\Http\Controllers\Admin\Dashboard\DashboardController as DashboardDashboardController;
 use App\Http\Controllers\FileDownloadController;
-use App\Http\Controllers\ImageSearchResultController;
 use App\Http\Controllers\RedirectControllers\DashboardController;
 use App\Http\Controllers\RedirectControllers\ImageDetailsController;
-use App\Http\Controllers\Search\ImageSearchController;
-use App\Http\Controllers\TestController;
 use App\Http\Modules\Fir\AddEvidenceComponent;
 use App\Http\Modules\Fir\ComplainComponent;
 use App\Http\Modules\Fir\NewComplainComponent;
@@ -17,8 +14,8 @@ use Dp0\UserActivity\Controllers\UserActivity;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Users\Police\PoiceDashboardController;
 use App\Http\Modules\Fir\ComplinantDetails;
+use App\Http\Modules\Fir\Similarity;
 use App\Http\Modules\Search\ImageSearch;
-use App\Http\Modules\Search\ImageSearchDetails;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +32,13 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+
+
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     //handle dashboard redirect for diffrent user
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
+
+    Route::get('/fir/similarity/{fir}',Similarity::class)->name('fir.similarity');
 
     //download file
     Route::get('/download/{hash}/{id}',[FileDownloadController::class,'download'])->name('download');
@@ -70,8 +71,6 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::get('/fir/view/{fir}',\App\Http\Modules\Fir\ViewFirComponent::class)->name('admin.fir.view');
         Route::get('/suspect/{suspect}/profile', SuspectProfileComponent::class)->name('admin.fir.suspect.profile');
         Route::get('/fir/{fir}/evidence/new', AddEvidenceComponent::class)->name('admin.fir.evidence.add');
-
-
 
     });
 

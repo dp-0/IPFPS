@@ -1,8 +1,8 @@
 <div>
     <div class="card">
-        <div class="card-header flex justify-content-center">
+        <div class="card-header flex justify-content-between">
             <strong>Suspect Information</strong>
-            <button wire:click="$toggle('addSuspect')" class="btn btn-primary btn-sm ml-auto"> <i
+            <button wire:click="$toggle('addSuspect')" class="d-print-none btn btn-primary btn-sm ml-auto"> <i
                     class="fa fa-plus-circle"></i> Add Suspect </button>
         </div>
         <div class="card-body">
@@ -15,7 +15,7 @@
                         <th>Gender</th>
                         <th>Arrest Date</th>
                         <th>Released Date</th>
-                        <th>Actions</th>
+                        <th class="no-print">Actions</th>
                     </tr>
                     @forelse ($suspects as $suspect)
                         <tr>
@@ -44,7 +44,7 @@
                                 {{ $suspect->released_date }}
                             </td>
 
-                            <td>
+                            <td class="no-print">
                                 <a href="{{ route('admin.fir.suspect.profile', $suspect->id) }}"
                                     class="btn btn-sm btn-primary"><i class="fa fa-user"></i> Profile</a>
                                 <button wire:click="updateSuspect({{ $suspect->id }})"

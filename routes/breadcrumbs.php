@@ -67,6 +67,10 @@ Breadcrumbs::for('admin.fir.fir-status', function (BreadcrumbTrail $trail) {
 Breadcrumbs::for('admin.fir.fir-list', function (BreadcrumbTrail $trail) {
     $trail->push('Fir', route('admin.fir.fir-list'));
 });
+Breadcrumbs::for('fir.similarity', function (BreadcrumbTrail $trail, $fir) {
+    $trail->parent('admin.fir.view',$fir);
+    $trail->push('Similarity', route('fir.similarity', $fir->id));
+});
 Breadcrumbs::for('admin.fir.new', function (BreadcrumbTrail $trail) {
     $trail->parent('admin.fir.fir-list');
     $trail->push('New', route('admin.fir.new'));

@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class AssignInChargeComponent extends Component
 {
-    protected $model = User::class;
+
 
     public $fir_id;
     public $new_officer;
@@ -48,5 +48,12 @@ class AssignInChargeComponent extends Component
         parent::updated($propertyName);
         $this->validateOnly($propertyName);
     }
-
+    public function alert($type,$message,$title=null)
+    {
+        $this->dispatchBrowserEvent('toast.success', [
+            'tite' => $title,
+            'message' => $message,
+            'type'=>$type
+        ]);
+    }
 }

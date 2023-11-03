@@ -2,11 +2,11 @@
     <div class="card">
         <div class="card-header flex justify-content-between">
             <span> <strong>Officer Information</strong></span>
-            <span class="row w-50">
-                <div class="col-8">
+            <span class="row w-50 no-print">
+                <div class="col-8 no-print">
                     <x-dropdown-with-image :items="$users" :selectedItem="$new_officer" data-selected="new_officer" />
                 </div>
-                <div class="col-4">
+                <div class="col-4 no-print">
                     <button wire:click="addInCharge" class="btn btn-primary btn-sm ml-auto"> <i
                             class="fa fa-plus-circle"></i> Add InCharge</button>
                 </div>
