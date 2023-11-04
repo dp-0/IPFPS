@@ -28,6 +28,8 @@
                             </td>
                             <td>{{ $user->name }}</td>
                             <td>
+                                <a href="{{ route('admin.user.roles',$user->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-user-tag"></i>
+                                    Roles</a>
                                 @can('update users')
                                     <button class="btn btn-primary btn-sm" wire:click="update({{ $user->id }})"
                                         value="true"><i class="fa fa-edit"></i> Edit</button>

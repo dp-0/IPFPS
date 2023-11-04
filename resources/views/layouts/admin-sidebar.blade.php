@@ -28,16 +28,16 @@
         </div>
     </li>
     <!-- Nav Item - Users Collapse Menu -->
-    <li class="nav-item {{ Request::is('admin/users', 'admin/roles') ? 'active' : '' }}">
+    <li class="nav-item {{Request::is('admin/user/roles/*') || Request::is('admin/users', 'admin/roles') ? 'active' : '' }}">
         <a class="nav-link bg-red" href="#" data-toggle="collapse" data-target="#users" aria-expanded="true"
             aria-controls="users">
             <i class="fas fa-fw fa-users"></i>
             <span>Users</span>
         </a>
-        <div id="users" class="collapse {{ Request::is('admin/users', 'admin/roles') ? 'show' : '' }}"
+        <div id="users" class="collapse {{Request::is('admin/user/roles/*') || Request::is('admin/users', 'admin/roles') ? 'show' : '' }}"
             aria-labelledby="users" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item {{ Request::is('admin/users') ? 'active' : '' }}"
+                <a class="collapse-item {{Request::is('admin/user/roles/*') || Request::is('admin/users') ? 'active' : '' }}"
                     href="{{ route('admin.users') }}">Users</a>
                 <a class="collapse-item {{ Request::is('admin/roles') ? 'active' : '' }}"
                     href="{{ route('admin.roles') }}">Roles</a>

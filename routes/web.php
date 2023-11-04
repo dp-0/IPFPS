@@ -16,6 +16,7 @@ use App\Http\Controllers\Users\Police\PoiceDashboardController;
 use App\Http\Modules\Fir\ComplinantDetails;
 use App\Http\Modules\Fir\Similarity;
 use App\Http\Modules\Search\ImageSearch;
+use App\Http\Modules\User\UserRoles;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::get('/roles', Roles::class)->name('admin.roles');
         Route::get('/roles/{role}/permissions', RolePermissions::class)->name('admin.roles_permissions');
         Route::get('/users', UserControllerComponent::class)->name('admin.users');
+        Route::get('/user/roles/{user}',UserRoles::class)->name('admin.user.roles');
         //Activity Log
         Route::get('/activity-logs', UserActivity::class)->name('admin.user_activity');
 
@@ -71,7 +73,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
         Route::get('/fir/view/{fir}',\App\Http\Modules\Fir\ViewFirComponent::class)->name('admin.fir.view');
         Route::get('/suspect/{suspect}/profile', SuspectProfileComponent::class)->name('admin.fir.suspect.profile');
         Route::get('/fir/{fir}/evidence/new', AddEvidenceComponent::class)->name('admin.fir.evidence.add');
-
+        
     });
 
      //Routes for Admin
