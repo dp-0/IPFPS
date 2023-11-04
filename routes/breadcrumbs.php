@@ -28,6 +28,11 @@ Breadcrumbs::for('search.result', function(BreadcrumbTrail $trail){
 Breadcrumbs::for('admin.users', function (BreadcrumbTrail $trail) {
     $trail->push('User', route('admin.users'));
 });
+Breadcrumbs::for('admin.user.roles', function (BreadcrumbTrail $trail, $user) {
+    $trail->parent('admin.users');
+    $trail->push($user->name);
+    $trail->push('Roles', route('admin.user.roles', $user->id));
+});
 
 Breadcrumbs::for('admin.roles', function (BreadcrumbTrail $trail) {
     $trail->push('Roles', route('admin.roles'));
